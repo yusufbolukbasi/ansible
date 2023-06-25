@@ -1,0 +1,18 @@
+web01 ansible_host=192.168.33.9 
+web02 ansible_host=192.168.33.10
+db01 ansible_host=192.168.33.11
+
+[websrvgrp]
+web01
+web02
+
+[dbsrvgrp]
+db01
+
+[dc_ohio:children]
+websrvgrp
+dbsrvgrp
+
+[dc_ohio:vars]
+ansible_user=vagrant
+ansible_ssh_pass=vagrant
